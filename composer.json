@@ -1,0 +1,48 @@
+{
+  "name": "lokielse/laravel-mns",
+  "type": "library",
+  "description": "Aliyun MNS Queue Driver For Laravel",
+  "keywords": [
+    "lokielse",
+    "laravel-mns"
+  ],
+  "homepage": "https://github.com/lokielse/laravel-mns",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "lokielse",
+      "email": "lokielse@gmail.com",
+      "homepage": "http://lokielse.org",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "illuminate/support": "~5.1",
+    "php": "~5.5|~7.0",
+    "lokielse/aliyun-open-api-mns": "^1.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0||~5.0",
+    "scrutinizer/ocular": "~1.1",
+    "squizlabs/php_codesniffer": "~2.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "lokielse\\laravel-mns\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "lokielse\\laravel-mns\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "format": "phpcbf --standard=psr2 src/"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}
