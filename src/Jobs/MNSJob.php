@@ -94,6 +94,10 @@ class MNSJob extends Job implements JobContract
     {
         parent::release($delay);
 
+        if ($delay < 1) {
+            $delay = 1;
+        }
+
         $this->adapter->changeMessageVisibility($this->job->getReceiptHandle(), $delay);
     }
 
