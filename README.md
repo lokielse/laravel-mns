@@ -94,22 +94,24 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 Create RAM access control at [Aliyun RAM Console](https://ram.console.aliyun.com)
 
 1. Create a custom policy such as `AliyunMNSFullAccessFoobar`
-```
-{
-  "Version": "1",
-  "Statement": [
-    {
-      "Action": "mns:*",
-      "Resource": [
-        "acs:mns:*:*:*/foobar-local",
-        "acs:mns:*:*:*/foobar-sandbox",
-        "acs:mns:*:*:*/foobar-production"
-      ],
-      "Effect": "Allow"
-    }
-  ]
-}
-```
+
+	```
+	{
+	  "Version": "1",
+	  "Statement": [
+		{
+		  "Action": "mns:*",
+		  "Resource": [
+			"acs:mns:*:*:*/foobar-local",
+			"acs:mns:*:*:*/foobar-sandbox",
+			"acs:mns:*:*:*/foobar-production"
+		  ],
+		  "Effect": "Allow"
+		}
+	  ]
+	}
+	```
+	
 2. Create a user for you app such as `foobar`
 3. Assign the policy `AliyunMNSFullAccessFoobar` to the user `foobar`
 4. Create and get the `AccessKeyId` and `AccessKeySecret` for user `foorbar`
