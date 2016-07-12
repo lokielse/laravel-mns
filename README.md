@@ -25,9 +25,9 @@ Edit your `config/queue.php`, add `mns` connection
 ```php
 'mns'        => [
 	'driver'       => 'mns',
-	'key'          => env('MNS_ACCESS_KEY'),
-	'secret'       => env('MNS_SECRET_KEY'),
-	'endpoint'     => env('MNS_ENDPOINT'),
+	'key'          => env('QUEUE_MNS_ACCESS_KEY'),
+	'secret'       => env('QUEUE_MNS_SECRET_KEY'),
+	'endpoint'     => env('QUEUE_MNS_ENDPOINT'),
 	'queue'        => env('QUEUE_NAME'),
 	'wait_seconds' => 30,
 ]
@@ -39,14 +39,15 @@ Edit your `.env` file
 ```bash
 QUEUE_DRIVER=mns
 QUEUE_NAME=foobar-local
-MNS_ACCESS_KEY=your_acccess_key
-MNS_SECRET_KEY=your_secret_key
-MNS_ENDPOINT=http://12345678910.mns.cn-hangzhou.aliyuncs.com/
+QUEUE_MNS_ACCESS_KEY=your_acccess_key
+QUEUE_MNS_SECRET_KEY=your_secret_key
+QUEUE_MNS_ENDPOINT=http://12345678910.mns.cn-hangzhou.aliyuncs.com/
 ```
+You should update `QUEUE_MNS_ENDPOINT` to `internal endpoint` in production mode
 
 ## Usage
 
-First create queues at [Aliyun MNS Console](https://mns.console.aliyun.com/)
+First create a queue and get queue endpoint at [Aliyun MNS Console](https://mns.console.aliyun.com/)
 
 Then update `MNS_ENDPOINT` in `.env`
 
@@ -90,7 +91,29 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Security
 
-If you discover any security related issues, please email lokielse@gmail.com instead of using the issue tracker.
+Create RAM access control at [Aliyun RAM Console](https://ram.console.aliyun.com)
+
+1. Create a custom policy such as `AliyunMNSFullAccessFoobar`
+```
+{
+  "Version": "1",
+  "Statement": [
+    {
+      "Action": "mns:*",
+      "Resource": [
+        "acs:mns:*:*:*/foobar-local",
+        "acs:mns:*:*:*/foobar-sandbox",
+        "acs:mns:*:*:*/foobar-production"
+      ],
+      "Effect": "Allow"
+    }
+  ]
+}
+```
+2. Create a user for you app such as `foobar`
+3. Assign the policy `AliyunMNSFullAccessFoobar` to the user `foobar`
+4. Create and get the `AccessKeyId` and `AccessKeySecret` for user `foorbar`
+5. update `QUEUE_MNS_ACCESS_KEY` and `QUEUE_MNS_ACCESS_SECRET` in `.env`
 
 ## Credits
 
