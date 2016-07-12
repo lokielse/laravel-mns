@@ -4,7 +4,7 @@ namespace Lokielse\LaravelMNS;
 
 use Illuminate\Support\ServiceProvider;
 use Lokielse\LaravelMNS\Connectors\MNSConnector;
-use Lokielse\LaravelMNS\Console\MNSClearCommand;
+use Lokielse\LaravelMNS\Console\MNSFlushCommand;
 
 class LaravelMNSServiceProvider extends ServiceProvider
 {
@@ -21,7 +21,7 @@ class LaravelMNSServiceProvider extends ServiceProvider
     {
         $this->registerConnector($this->app['queue']);
 
-        $this->commands('command.queue.mns.clear');
+        $this->commands('command.queue.mns.flush');
     }
 
 
@@ -53,8 +53,8 @@ class LaravelMNSServiceProvider extends ServiceProvider
 
     private function registerCommand()
     {
-        $this->app->singleton('command.queue.mns.clear', function () {
-            return new MNSClearCommand();
+        $this->app->singleton('command.queue.mns.flush', function () {
+            return new MNSFlushCommand();
         });
     }
 }

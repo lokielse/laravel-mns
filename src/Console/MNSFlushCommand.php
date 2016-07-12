@@ -9,7 +9,7 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class MNSClearCommand extends Command
+class MNSFlushCommand extends Command
 {
 
     /**
@@ -17,14 +17,14 @@ class MNSClearCommand extends Command
      *
      * @var string
      */
-    protected $name = 'queue:mns:clear';
+    protected $name = 'queue:mns:flush';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Clear MNS Queue';
+    protected $description = 'Flush MNS Queue';
 
 
     public function __construct()

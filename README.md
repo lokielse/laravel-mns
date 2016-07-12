@@ -68,10 +68,10 @@ $ php artisan queue:listen
 ```
 
 ## Commands
-Clear messages on Aliyun
+Flush MNS messages on Aliyun
 
 ```bash
-$ php artisan queue:mns:clear
+$ php artisan queue:mns:flush
 ```
 
 ## Change log
