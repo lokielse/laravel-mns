@@ -3,6 +3,7 @@
   "type": "library",
   "description": "Aliyun MNS Queue Driver For Laravel",
   "keywords": [
+    "laravel",
     "lokielse",
     "aliyun",
     "mts",
