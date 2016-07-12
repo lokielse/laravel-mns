@@ -67,27 +67,12 @@ Create queue listener, run command in terminal
 ```bash
 $ php artisan queue:listen
 ```
-
 ## Commands
 Flush MNS messages on Aliyun
 
 ```bash
 $ php artisan queue:mns:flush
 ```
-
-## Change log
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Testing
-
-``` bash
-$ composer test
-```
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
 
 ## Security
 
@@ -120,9 +105,24 @@ Create RAM access control at [Aliyun RAM Console](https://ram.console.aliyun.com
 
 5. update `QUEUE_MNS_ACCESS_KEY` and `QUEUE_MNS_ACCESS_SECRET` in `.env`
 
+## Change log
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Testing
+
+``` bash
+$ composer test
+```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
+
 ## Credits
 
 - [Loki Else][link-author]
+- [abrahamgreyson](https://github.com/abrahamgreyson/laravel-mns)
 - [All Contributors][link-contributors]
 
 ## License
