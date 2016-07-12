@@ -19,7 +19,7 @@ class LaravelMNSServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->registerMNSConnector($this->app['queue']);
+        $this->registerConnector($this->app['queue']);
 
         $this->commands('command.queue.mns.clear');
     }
@@ -43,7 +43,7 @@ class LaravelMNSServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerMNSConnector($manager)
+    protected function registerConnector($manager)
     {
         $manager->addConnector('mns', function () {
             return new MNSConnector();

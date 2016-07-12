@@ -28,12 +28,12 @@
   },
   "autoload": {
     "psr-4": {
-      "lokielse\\laravel-mns\\": "src"
+      "Lokielse\\LaravelMNS\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "lokielse\\laravel-mns\\": "tests"
+      "Lokielse\\LaravelMNS\\": "tests"
     }
   },
   "scripts": {
