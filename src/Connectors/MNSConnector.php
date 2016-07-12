@@ -19,7 +19,7 @@ class MNSConnector implements ConnectorInterface
      */
     public function connect(array $config)
     {
-        return new MNSQueue($this->getAdaptor($config), $config['queue']);
+        return new MNSQueue($this->getAdaptor($config), $config['queue'], array_get($config, 'wait_seconds'));
     }
 
 
