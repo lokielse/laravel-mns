@@ -122,7 +122,7 @@ Create RAM access control at [Aliyun RAM Console](https://ram.console.aliyun.com
 
 ## Credits
 
-- [lokielse][link-author]
+- [Loki Else][link-author]
 - [All Contributors][link-contributors]
 
 ## License
