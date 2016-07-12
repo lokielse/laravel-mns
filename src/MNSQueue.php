@@ -23,11 +23,17 @@ class MNSQueue extends Queue implements QueueContract
      */
     protected $default;
 
+    /**
+     * @var null
+     */
+    private $waitSeconds;
 
-    public function __construct(MNSAdapter $adapter, $queue)
+
+    public function __construct(MNSAdapter $adapter, $queue, $waitSeconds = null)
     {
-        $this->adapter = $adapter;
-        $this->default = $queue;
+        $this->adapter     = $adapter;
+        $this->default     = $queue;
+        $this->waitSeconds = $waitSeconds;
     }
 
 
@@ -100,7 +106,7 @@ class MNSQueue extends Queue implements QueueContract
         $queue = $this->getDefaultIfNull($queue);
 
         try {
-            $response = $this->adapter->useQueue($this->getQueue($queue))->receiveMessage();
+            $response = $this->adapter->useQueue($this->getQueue($queue))->receiveMessage($this->waitSeconds);
         } catch (MessageNotExistException $e) {
             $response = null;
         }

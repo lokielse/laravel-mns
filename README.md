@@ -24,13 +24,15 @@ Edit your `config/queue.php`, add `mns` connection
 
 ```php
 'mns'        => [
-	'driver'   => 'mns',
-	'key'      => env('MNS_ACCESS_KEY'),
-	'secret'   => env('MNS_SECRET_KEY'),
-	'endpoint' => env('MNS_ENDPOINT'),
-	'queue'    => env('QUEUE_NAME', 'default'),
-],
+	'driver'       => 'mns',
+	'key'          => env('MNS_ACCESS_KEY'),
+	'secret'       => env('MNS_SECRET_KEY'),
+	'endpoint'     => env('MNS_ENDPOINT'),
+	'queue'        => env('QUEUE_NAME'),
+	'wait_seconds' => 30,
+]
 ```
+About [wait_seconds](https://help.aliyun.com/document_detail/35136.html)
 
 Edit your `.env` file
 

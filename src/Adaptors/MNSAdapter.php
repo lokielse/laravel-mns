@@ -35,7 +35,7 @@ use Aliyun\MNS\Responses\SetQueueAttributeResponse;
  * @method MnsPromise sendMessageAsync( SendMessageRequest $request, AsyncCallback $callback = null )
  * @method PeekMessageResponse peekMessage()
  * @method MnsPromise peekMessageAsync( AsyncCallback $callback = null )
- * @method ReceiveMessageResponse receiveMessage()
+ * @method ReceiveMessageResponse receiveMessage( int $waitSeconds = null )
  * @method MnsPromise receiveMessageAsync( AsyncCallback $callback = null )
  * @method ReceiveMessageResponse deleteMessage( string $receiptHandle )
  * @method MnsPromise deleteMessageAsync( string $receiptHandle, AsyncCallback $callback = null )
