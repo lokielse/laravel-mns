@@ -4,6 +4,14 @@
   "description": "Aliyun MNS Queue Driver For Laravel",
   "keywords": [
     "lokielse",
+    "aliyun",
+    "mts",
+    "ons",
+    "queue",
+    "driver",
+    "cloud",
+    "队列",
+    "阿里云",
     "laravel-mns"
   ],
   "homepage": "https://github.com/lokielse/laravel-mns",
