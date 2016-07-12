@@ -111,10 +111,13 @@ Create RAM access control at [Aliyun RAM Console](https://ram.console.aliyun.com
 	  ]
 	}
 	```
-	
+
 2. Create a user for you app such as `foobar`
+
 3. Assign the policy `AliyunMNSFullAccessFoobar` to the user `foobar`
+
 4. Create and get the `AccessKeyId` and `AccessKeySecret` for user `foorbar`
+
 5. update `QUEUE_MNS_ACCESS_KEY` and `QUEUE_MNS_ACCESS_SECRET` in `.env`
 
 ## Credits
