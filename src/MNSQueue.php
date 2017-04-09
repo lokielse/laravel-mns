@@ -4,6 +4,7 @@ namespace Lokielse\LaravelMNS;
 
 use Aliyun\MNS\Exception\MessageNotExistException;
 use Aliyun\MNS\Requests\SendMessageRequest;
+use Exception;
 use Illuminate\Contracts\Queue\Queue as QueueContract;
 use Illuminate\Queue\Queue;
 use Lokielse\LaravelMNS\Adaptors\MNSAdapter;
@@ -38,6 +39,20 @@ class MNSQueue extends Queue implements QueueContract
 
 
     /**
+     * Get the size of the queue.
+     *
+     * @param  string $queue
+     *
+     * @return int
+     * @throws Exception
+     */
+    public function size($queue = null)
+    {
+        throw new Exception('The size method is not support for aliyun-mns');
+    }
+
+
+    /**
      * Push a new job onto the queue.
      *
      * @param string $job
@@ -63,7 +78,7 @@ class MNSQueue extends Queue implements QueueContract
      *
      * @return mixed
      */
-    public function pushRaw($payload, $queue = null, array $options = [ ])
+    public function pushRaw($payload, $queue = null, array $options = [])
     {
         $message  = new SendMessageRequest($payload);
         $response = $this->adapter->useQueue($this->getQueue($queue))->sendMessage($message);
