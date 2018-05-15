@@ -126,4 +126,15 @@ class MNSJob extends Job implements JobContract
     {
         return $this->container;
     }
+
+
+    /**
+     * Get the Job ID.
+     *
+     * @return string
+     */
+    public function getJobId()
+    {
+        return $this->job->getMessageId();
+    }
 }
