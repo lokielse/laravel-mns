@@ -99,7 +99,12 @@ class MNSQueue extends Queue implements QueueContract
      */
     public function later($delay, $job, $data = '', $queue = null)
     {
-        $seconds  = $this->getSeconds($delay);
+        if (method_exists($this, 'getSeconds')) {
+            $seconds = $this->getSeconds($delay);
+        } else {
+            $seconds = $this->secondsUntil($delay);
+        }
+
         $payload  = $this->createPayload($job, $data);
         $message  = new SendMessageRequest($payload, $seconds);
         $response = $this->adapter->useQueue($this->getQueue($queue))->sendMessage($message);
