@@ -85,7 +85,7 @@ class MNSJob extends Job implements JobContract
     {
         parent::delete();
         $receiptHandle = $this->job->getReceiptHandle();
-        $this->adapter->deleteMessage($receiptHandle);
+        $this->adapter->useQueue($this->getQueue())->deleteMessage($receiptHandle);
     }
 
 
@@ -102,7 +102,7 @@ class MNSJob extends Job implements JobContract
             $delay = 1;
         }
 
-        $this->adapter->changeMessageVisibility($this->job->getReceiptHandle(), $delay);
+        $this->adapter->useQueue($this->getQueue())->changeMessageVisibility($this->job->getReceiptHandle(), $delay);
     }
 
 
